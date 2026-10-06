@@ -56,13 +56,13 @@ def test_zero_quantity_raises():
 # ---------------------------------------------------------------------
 def test_negative_price_error_message():
     cart = ShoppingCart()
-    with pytest.raises(ValueError, match="價格"):
+    with pytest.raises(KeyError, match="價格"):
         cart.add("蘋果", price=-1)
 
 
 def test_zero_quantity_error_message():
     cart = ShoppingCart()
-    with pytest.raises(ValueError, match="數量"):
+    with pytest.raises(KeyError, match="數量"):
         cart.add("蘋果", price=30, qty=0)
 
 
@@ -71,7 +71,7 @@ def test_zero_quantity_error_message():
 # ---------------------------------------------------------------------
 def test_inspect_exception_object():
     cart = ShoppingCart()
-    with pytest.raises(ValueError) as exc_info:
+    with pytest.raises(KeyError) as exc_info:
         cart.add("蘋果", price=-1)
 
     assert "價格不可為負數" in str(exc_info.value)
