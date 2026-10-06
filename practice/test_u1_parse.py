@@ -28,6 +28,7 @@ def test_basic_fields_parsed():
     assert event['action'] == "login_failed"
     assert event['user'] == "admin"
 
+
 def test_ts_converted_to_float():
     # TODO：原始的 ts 是整數 1700000000，解析後應該是 float
     #       提示：isinstance(x, float)
